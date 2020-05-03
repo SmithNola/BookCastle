@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contest</title>
+<style type="text/css">
+.auto-style1 {
+	text-align: center;
+}
+.auto-style2 {
+	margin-top: 0px;
+	text-align: left;
+}
+</style>
+<script>
+
+function percent(num){
+	var n=num.toString();
+	var l=n.length;
+	var newNum=(num/Math.pow(10, l));
+	return newNum;
+}
+
+function round(num, places) {
+  places = Math.pow(10, places)
+  answer=Math.ceil(num * places) / places;
+  return answer;
+}
+
+function year(age){
+	var d = new Date();
+	var date= d.getFullYear();
+	return parseInt(date)-age;
+  }
+function forn(answer2){
+	if(answer2[0].checked){
+		answer=10;
+	}
+	else if(answer2[1].checked){
+		answer=8
+	}
+	else{
+		answer=20;
+	}
+	return answer;
+		 
+}
+function books(number){
+	if(number>20){
+		answer=2;
+	}
+	else{
+		answer=1;
+	}
+	return answer;
+}
+function read(number2){
+	if(number2==0){
+		answer=1;
+	}
+	else{
+		answer=number2;
+	}
+	return answer;
+}
+
+function enjoyment(enjoy){
+	if(enjoy==1){
+		enjoy=5;
+	}
+	else{
+		enjoy=10;
+	}
+	return enjoy;
+}
+
+function empty(){ 
+
+                if(document.form2.firstname.value == ""||document.form2.lastname.value == ""||document.form2.age.value == ""||document.form2.number.value == ""||document.form2.number2.value == ""||document.form2.number3.value == ""||document.form2.answer2.value == ""||document.form2.image1.value=="")
+                {
+                    alert("Everything Must Be Filled Out");
+                    var good=false;
+                }
+                else{
+                	var good=true;
+                }
+                return good;
+            }
+            
+            
+function submit1(pic,answer2,genre){
+	if(document.form2.firstname.value == ""||document.form2.lastname.value == ""||document.form2.age.value == ""||document.form2.number.value == ""||document.form2.number2.value == ""||document.form2.number3.value == ""||document.form2.answer2.value == "")
+	{
+    	alert("Everything Must Be Filled Out");
+    }
+    else{
+   		var text = document.getElementById("pic"),
+        image1 = document.getElementById("image1");
+    	if (document.form2.pic.value == 1){
+      document.image1.src="funny.jpg";
+    }
+    else if (document.form2.pic.value == 2){
+      document.image1.src="ove.jpg";
+    }
+    else if (document.form2.pic.value == 3){
+      document.image1.src="silk.jpg";
+    }
+    else {
+      document.image1.src="TheHideaway.jpg";
+    }
+    	alert('Your Application has been sent and the results should be posted on our site next month');
+    }
+    
+}
+
+function chance(answer2,genre,age,number,number2,number3,enjoy){
+	var chances=round(percent(((year(document.form2.age.value)+forn(document.form2.answer2.value))/(books(document.form2.number.value)/read(document.form2.number2.value)))+document.form2.number3.value+(document.form2.genre.value*enjoyment(document.form2.enjoy.value))),2);
+	var win = window.open("about:blank", null, "width=400,height=300");
+	var doc = win.document;
+	doc.open("text/html");
+	doc.write("Your chances of Winning are: "+(chances*100)+"%");
+	doc.close();
+}
+</script>
+<script>
+function getObj(elementID)
+{
+  return document.getElementById(elementID);
+}
+
+function emptyNode(elementID)
+{
+  var theNode = getObj(elementID);
+  for (i= theNode.childNodes.length - 1; i >=0; i--)
+  {
+    theNode.removeChild(theNode.childNodes[i]);
+  }
+}
+
+var genref = new Array('Mystery','Fantasy','Historical','Fairy Tales','Realistic');
+var genren = new Array('CookBook','Poems','History','Joke Book','Self Improvement');
+var genree = new Array('Mystery','Fantasy','Historical','Fairy Tales','Realistic','CookBook','Poems','History','Joke Book','Self Improvement');
+
+function changeGenre(){
+	var genre=new Array();
+
+  if (form2.answer2.value == "fiction")
+  {
+    genre=genref;
+  }
+  else if(form2.answer2.value == "nonfiction"){
+  	genre=genren;
+  }
+  else
+  {
+    genre=genree;
+  }
+  emptyNode("chooseGenre");
+  theNode = getObj("chooseGenre");
+  for (i = 0; i < genre.length; i++)
+  {
+
+    var newNode;
+    if (navigator.appName == "Netscape")
+    {
+      newNode = document.createElement("OPTION");
+      newNode.setAttribute("value", genre[i]);
+    }
+    else
+    {
+      var newHTML = "<OPTION value='" + genre[i] + "'>";
+      newNode= document.createElement(newHTML);
+    }
+    theNode.appendChild(newNode);
+    newNode.appendChild(document.createTextNode(genre[i]));
+  }
+}
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+.side,p{
+	position:absolute;left:10px;top:120px;}
+.side{top:80px;padding:5px;width:200px;height:30px;background:fuchsia; border:2px dashed gray;}
+</style>
+<script>
+$(document).ready(function(){
+	$("#move").click(function(){
+
+     $("#sign").animate({top:'250px'}, "fast", function(){$("#sign").animate({top:'0px'}, "slow")});
+		 
+  });
+});
+</script>
+</head>
+<h1 class="auto-style1"><strong><em>Free Book Giveway</em></strong></h1>
+<body bgcolor="#DAA520">
+<form name="form2">
+<section>
+<div style="float:right;margin-right:160px" class="auto-style2" >
+<p>
+<ol>
+  	<li>Furiously Happy: A Funny Book About Horrible Things</li>
+  	<li>A Man Called Ove</li>
+  	<li>The Silk Roads: A New History of the World</li>
+  	<li>The HideAway</li>
+</ol>
+Enter the number of the book you would like<br>
+<input type="text" name="pic"><br><br>
+<img src="funny.jpg" height="270" alt="image1" width="270" border="2" name="image1">
+</p>
+</div>
+</section>
+<section class="auto-style1" style="width:500px;margin-left:160px">
+First Name<br>		
+<input type="text" name="firstname"><br>
+Last Name<br>
+<input type="text" name="lastname"><br>
+Year of birth<br>
+<input type="text" name="age"><br>
+Would you prefer the book to be an ebook or physical book?<br>
+<select>
+  <option value="ebook">Ebook</option>
+  <option value="physical">Physical book</option>
+</select><br>
+Approximately, How Many Books Do You Own?<br>
+<input type="text" name="number"><br>
+How Many Days A Week Do You Read?<br>
+<input type="text" name="number2"><br>
+How Many Days on Average Does it take You took Finish a Books<br>
+<input type="text" name="number3"><br>
+Would you like a fiction or nonfiction book?<br>
+<input type="radio" name="answer2" value="fiction" onclick="changeGenre()">Fiction
+<input type="radio" name="answer2" value="nonfiction" onclick="changeGenre()">Nonfiction
+<input type="radio" name="answer2" value="either" onclick="changeGenre()">Either<br>
+Based on your selection above which genre you would like?<br>
+<select name="genre" id="chooseGenre">
+  <option value="1">Mystery</option>
+  <option value="2">Self Improvement</option>
+  <option value="1">Fantasy</option>
+  <option value="1">Realistic</option>
+  <option value="1">Fairy Tales</option>
+  <option value="2">Cook Book</option>
+  <option value="2">Joke Book</option>
+  <option value="2">History</option>
+  <option value="2">Poems</option>
+</select><br>
+On your free time what do you enjoy doing besides reading?<br>
+<input type="checkbox" name="enjoy" value="sports">Sports
+<input type="checkbox" name="enjoy" value="exercising">Exercising
+<input type="checkbox" name="enjoy" value="cooking">Cooking
+<input type="checkbox" name="enjoy" value="tv">Watching TV
+<input type="checkbox" name="enjoy" value="other">Other<br>
+<br>
+Your chances of winning are calculated based on our own personal algorithm<br>
+<input type="button" name="button" value="View Chances of Winning"
+  onclick="chance(answer2.value,genre.value,age.value,number.value,number2.value,number3.value,enjoy.value);">
+<br><br>
+<input type="button" value="Submit" onclick="submit1(pic.value);">
+<section class="auto-style1" style="width:500px;margin-left:160px">
+<p id="sign">Enter To Win<br><input type="button" value="Move box" id="move"></p>
+</section>
+</form>
+</section>
+</body>
+</html>

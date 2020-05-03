@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Members>
+
+     <Member>
+
+          <Id>a06gh</Id>
+
+          <FirstName>Tonny</FirstName>
+
+          <LastName>Flan</LastName>
+
+          <Genre>Poems</Genre>
+
+          <City>Johnston</City>
+
+          <FavBook>Riot</FavBook>
+
+     </Member>
+     
+     <Member>
+
+          <Id>c12pw</Id>
+
+          <FirstName>Mary</FirstName>
+
+          <LastName>Smith</LastName>
+
+          <Genre>Fantasy</Genre>
+
+          <City>UpTill</City>
+          
+          <FavBook>Fahrenheit 451</FavBook>
+
+     </Member>
+     
+       <Member>
+
+          <Id>a59sy</Id>
+
+          <FirstName>Jimmy</FirstName>
+
+          <LastName>Dent</LastName>
+
+          <Genre>Historical</Genre>
+
+          <City>Flushing</City>
+          
+          <FavBook>The Book Of Names</FavBook>
+
+     </Member>
+     
+         <Member>
+
+          <Id>r14se</Id>
+
+          <FirstName>Bob</FirstName>
+
+          <LastName>Lion</LastName>
+
+          <Genre>Fantasy</Genre>
+
+          <City>Flushing</City>
+          
+          <FavBook>The Name Of This Book Is A Secret</FavBook>
+
+     </Member>
+     
+         <Member>
+
+          <Id>j09gr</Id>
+
+          <FirstName>Joey</FirstName>
+
+          <LastName>Silver</LastName>
+
+          <Genre>Mystery</Genre>
+
+          <City>Flushing</City>
+          
+          <FavBook>Lost</FavBook>
+
+     </Member>
+     
+         <Member>
+
+          <Id>e45qo</Id>
+
+          <FirstName>Bob</FirstName>
+
+          <LastName>Lion</LastName>
+
+          <Genre>History</Genre>
+
+          <City>Milton</City>
+          
+          <FavBook>Everything I Never Told You</FavBook>
+
+     </Member>
+
+</Members>

@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>Book Club</title>
+<style type="text/css">
+.auto-style1 {
+	text-align: center;
+}
+</style>
+<h1 class="auto-style1">Information About Our Book Club</h1>
+<div style="float:right">
+This is the next book we are reading for the book club.<br>
+The Immortalists<br>
+By:Chloe Benjamin<br>
+<img src="book2.jpg" alt="bookclub book" height="400px"><br>
+<cite><font size="1">https://www.penguinrandomhouse.com/books/551044/the-immortalists-by-chloe-benjamin/9780735213180/</font></cite>
+</div>
+
+<div class="auto-style1">
+<script language="JavaScript" type="text/javascript">
+function loadXMLDoc(dname)
+{
+    if (window.XMLHttpRequest)
+    {
+        xhttp=new XMLHttpRequest();
+    }
+    else
+    {
+        xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xhttp.open("GET",dname,false);
+    xhttp.send();
+    return xhttp.responseXML;
+} 
+function searchXML()
+{
+    xmlDoc=loadXMLDoc("members.xml");
+    x=xmlDoc.getElementsByTagName("Id");
+    input = document.getElementById("input").value;
+    size = input.length;
+    Id = xmlDoc.getElementsByTagName("Id");
+    if (input == null || input == "")
+    {
+        document.getElementById("results").innerHTML= "Enter the Member's ID";
+        return false;
+    }
+    for (i=0;i<x.length;i++)
+    {
+            startString = x[i].childNodes[0].nodeValue;
+        if (startString.toLowerCase() == input.toLowerCase())
+        {
+            FirstName=xmlDoc.getElementsByTagName("FirstName")[i].childNodes[0].nodeValue;
+            LastName=xmlDoc.getElementsByTagName("LastName")[i].childNodes[0].nodeValue;
+            Id=xmlDoc.getElementsByTagName("Id")[i].childNodes[0].nodeValue;
+            Genre=xmlDoc.getElementsByTagName("Genre")[i].childNodes[0].nodeValue;
+            City=xmlDoc.getElementsByTagName("City")[i].childNodes[0].nodeValue;
+            FavBook=xmlDoc.getElementsByTagName("FavBook")[i].childNodes[0].nodeValue;
+            divText = "<h1>This member is:</h1><br /><table border=1><tr><th>First Name</th><th>Last Name</th><th>ID</th><th>Genre</th><th>City</th><th>FavBook</th></tr>" + "<tr><td>" + FirstName + "</td><td>" + LastName + "</td><td>" + Id + "</td><td>" + Genre + "</td><td>" + City + "</td><td>" + FavBook + "</td></tr>" + "</table>";
+            break;
+        }
+        else
+        {
+            divText = "<h2>The member does not exist.</h2>";
+        }
+    }
+    document.getElementById("results").innerHTML= divText;
+}
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+  	$("p").css(
+  	{"background-color":"blue",
+  	"color":"red",
+  	"width":"800"
+  	}
+  	); 
+ });	
+</script>
+</head>
+<body bgcolor="B4FB3E">
+<section>
+<div style="margin-top:70px"><font size="5">
+Club members get 20% off books.<br>
+Meeting Time: Every three weeks next date is August 7th.<br>
+Location: In the store upstairs behind the large bookcase.<br>
+To join contact Bob Lion at 555-999-3344
+<p>To search for a current member of the club enter their Id <br>which can be found on the home page.<br>
+Id: <input type="text" name="Id" id="input"></font>
+<br />
+<input type="submit" value="Submit" onClick="searchXML()"></p>
+</div>
+</div>
+<div id="results">
+</div>
+</section>
+</body>
+</html>

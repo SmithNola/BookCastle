@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Job Application</title>
+<style type="text/css">
+.auto-style1 {
+	text-align: center;
+}
+</style>
+<script>
+                
+function submit1(){
+	if(document.form3.firstname.value == ""||document.form3.lastname.value == ""||document.form3.bday.value == ""||document.form3.start.value == ""||document.form3.paid.value == ""||document.form3.color.value == ""||document.form3.job.value == ""||document.form3.work.value == ""||document.form3.phone.value == ""||document.form3.address.value == ""){
+    	alert("Everything Must Be Filled Out");
+    }
+    else{
+   		    	alert('Your Application has been sent and if you are chosen to be interview you should hear from us in a couple of days');
+    }
+}
+</script>
+<script>
+var delay = 5;
+var timerID = "";
+var change = 5;
+var y = 10;
+var x = 750;
+ 
+function startAnim()
+{
+        if (timerID=="")
+        {
+               timerID = setInterval("animate()",delay);
+        }
+}
+ 
+function stopAnim()
+{
+        clearInterval(timerID);
+        timerID="";
+}
+ 
+function animate(){
+	if(y<400&&x==750){
+		y++;
+	}
+	if(y==400&&x<1200){
+		x++;
+	}
+	if(x==1200&&y>10){
+		y--;
+	}
+	if(y==10&&x>750){
+		x--;
+	}
+    shiftTo(x, y, 2);
+
+}
+ 
+function getObj(elementID)
+{
+        return document.getElementById(elementID);
+}
+ 
+function shiftTo(x,y,z)
+{
+  getObj('book').style.left = x + "px";
+  getObj('book').style.top = y + "px";
+  getObj('book').style.zIndex = z;
+  
+}
+
+function changeName(){
+  var theNode = getObj("name");
+  var newName=prompt("Type your name","");
+  theNode.firstChild.nodeValue=newName;
+}
+
+function changeJob(){
+  var theNode = getObj("job");
+  var newJob=prompt("Type the job you expect to have","");
+  theNode.firstChild.nodeValue=newJob;
+}
+
+function changeTag()
+{
+  var theNode = getObj("color");
+  var newColor=prompt("Enter a color.","yellow");
+  theNode.style.backgroundColor=newColor;
+}
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $("#AddSkill").click(function(){
+
+  		skill=prompt("Enter Your Skill");
+        $("ol").append($("<li></li>").text(skill));
+    });
+    
+      $("button").click(function(){
+        $("#skills").empty();
+    });    
+});
+
+
+</script>
+<style type="text/css">
+#book { position:absolute;  top:-150px; z-index:2; }
+#controls { left:10px; top:10px; z-index:1; 
+                       color:yellow; font-family:serif; 
+                       font-weight:bold; width:140px; padding:5px;}
+</style>
+
+</head>
+<h1 class="auto-style1"><strong><em>Job Application</em></strong></h1>
+<body onload="startAnim()" bgcolor="723786">
+<div style="float:right">
+<section>
+<div id="controls">
+<form>
+<p>
+<input type="button" value="start" onclick="startAnim();">
+<input type="button" value="stop" onclick="stopAnim();">
+<br>
+</form>
+</div>
+<img src="book.jpg" id="book" width="60" height="100">
+<section id="color"style="background-color:gray; margin-right:90px">
+<aside>
+<p> This is your sample name tag. <br>You can edit now for when you get the job.<br><br><br></p>
+<p id="message">Hello, my name is <span id="name">(Your Name)</span>.</p>
+<p id="message">I am currently a <span id="job">(Job)</span>.</p>
+<p>I would be happy to help you.</p>
+</aside>
+<input type="button" onClick="changeName()" value="Change Name">
+<input type="button" onClick="changeJob()" value="Change Job"><br>
+<input type="button" onClick="changeTag()" value="Change Tag Color" 
+</section>
+</section>
+</div>
+<form name="form3" style="margin-left:10px">
+First Name:<br>
+<input type="text" name="firstname"><br>
+Last Name<br>
+<input type="text" name="lastname"><br>
+Phone Number<br>
+<input type="text" name="phone"><br>
+Address<br>
+<input type="text" name="address"><br>
+Birthday<br>
+<input type="date" name="bday"><br>
+When Can You Start<br>
+<input type="date" name="start"><br>
+How Much Do You Expect To Be Paid An Hour?<br>
+<input type="text" name="paid"><br>
+If You Get The Job What Color Would You Like Your Name Tag To Be (red,blue, or yellow)<br>
+<input type="text" name="color"><br>
+Add Your skills that would be beneficial to the store (keep the description short)
+<div id="skills">
+<ol></ol>
+</div>
+<input type="button" id="AddSkill" value="New Skill">
+<button>Remove All Skills</button>
+<br>
+Which Job Are You Applying For?<br>
+<input type="radio" name="job" value="Cashier">Cashier<br>
+<input type="radio" name="job" value="Shelver">Shelver<br>
+How Many Days A Week Can You Work?<br>
+<input type="text" name="work"><br>
+<input type="button" value="Submit" onclick="submit1();">
+</form>
+</body>
+</html
